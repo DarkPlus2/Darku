@@ -3,117 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Advanced Discord Profile</title>
+  <title>Ultimate Discord Profile</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2111/2111370.png">
+  <script type="module" src="script.js"></script>
 </head>
 <body>
-  <div class="theme-selector">
-    <button class="theme-btn" data-theme="default">Default</button>
-    <button class="theme-btn" data-theme="dark">Dark</button>
-    <button class="theme-btn" data-theme="light">Light</button>
-    <button class="theme-btn" data-theme="pink">Pink</button>
-    <button class="theme-btn" data-theme="green">Green</button>
+  <div class="theme-selector-container">
+    <div class="theme-selector">
+      <button class="theme-selector-toggle">
+        <i class="fas fa-palette"></i>
+      </button>
+      <div class="theme-options"></div>
+    </div>
   </div>
 
-  <div class="background-animation">
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-  </div>
+  <div class="background-animation"></div>
 
   <main class="card">
     <div class="avatar-container">
-      <img src="https://cdn.discordapp.com/avatars/1186206505658220597/cfad873911e29082e5b0f10560d8863a.webp?size=512" alt="Avatar" class="avatar floating" />
+      <img alt="Avatar" class="avatar">
       <div class="status" title="Online"></div>
+      <div class="status-ripple"></div>
     </div>
 
-    <h1 class="username">DarkPlusX<span class="discriminator">#0000</span></h1>
+    <h1 class="username">
+      <span class="username-text"></span>
+      <span class="discriminator"></span>
+    </h1>
     
-    <div class="badges">
-      <div class="badge" title="Discord Staff">
-        <i class="fas fa-check"></i>
-        <span class="badge-tooltip">Discord Staff</span>
-      </div>
-      <div class="badge" title="Partnered Server Owner">
-        <i class="fas fa-heart"></i>
-        <span class="badge-tooltip">Partnered Server Owner</span>
-      </div>
-      <div class="badge" title="Certified Moderator">
-        <i class="fas fa-shield-alt"></i>
-        <span class="badge-tooltip">Certified Moderator</span>
-      </div>
-    </div>
+    <div class="badges"></div>
 
-    <p class="bio">🌟 Full-stack Developer | Open Source Contributor | UI/UX Designer | Coffee Enthusiast</p>
+    <p class="bio"></p>
 
     <div class="custom-status">
-      <i class="fas fa-smile"></i>
-      <span>Working on my next big project!</span>
+      <i class="status-emoji"></i>
+      <span class="status-text"></span>
     </div>
 
     <div class="divider"></div>
 
-    <div class="tags">
-      <span>#developer</span>
-      <span>#opensource</span>
-      <span>#javascript</span>
-      <span>#design</span>
-    </div>
+    <div class="tags"></div>
 
     <div class="activity">
       <div class="activity-icon">
-        <i class="fas fa-code"></i>
+        <i class="activity-icon-i"></i>
       </div>
       <div class="activity-details">
-        <div class="activity-name">Visual Studio Code</div>
-        <div class="activity-state">Working on profile-card.html</div>
+        <div class="activity-name"></div>
+        <div class="activity-state"></div>
       </div>
     </div>
 
-    <div class="socials">
-      <a href="https://discord.com/users/YOUR_ID" class="social-link discord" target="_blank" title="Discord">
-        <i class="fab fa-discord"></i>
-      </a>
-      <a href="https://github.com/YOUR_GITHUB" class="social-link github" target="_blank" title="GitHub">
-        <i class="fab fa-github"></i>
-      </a>
-      <a href="https://twitter.com/YOUR_TWITTER" class="social-link twitter" target="_blank" title="Twitter">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="https://youtube.com/YOUR_YOUTUBE" class="social-link youtube" target="_blank" title="YouTube">
-        <i class="fab fa-youtube"></i>
-      </a>
-    </div>
+    <div class="socials"></div>
 
     <div class="connections">
       <div class="connections-title">
         <i class="fas fa-link"></i>
         <span>Connections</span>
       </div>
-      <div class="connection">
-        <div class="connection-icon">
-          <i class="fab fa-github"></i>
-        </div>
-        <div class="connection-name">GitHub</div>
-        <div class="connection-username">@yourusername</div>
-      </div>
-      <div class="connection">
-        <div class="connection-icon">
-          <i class="fab fa-twitter"></i>
-        </div>
-        <div class="connection-name">Twitter</div>
-        <div class="connection-username">@yourhandle</div>
-      </div>
+      <div class="connections-list"></div>
     </div>
   </main>
 
-  <script src="script.js"></script>
+  <div class="cursor-follower"></div>
 </body>
 </html>
