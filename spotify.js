@@ -24,7 +24,7 @@ class SpotifyPlayer {
         { 
           title: "Dreaming", 
           artist: "Lee",
-          duration: 266,
+          duration: 600,
           audioFile: "background.mp3" // Replace with actual file
         },
         // Add more tracks
