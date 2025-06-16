@@ -16,9 +16,9 @@ class SpotifyPlayer {
     // Track playlist with Spotify URIs
     this.tracks = [
       {
-        title: "Blinding Lights",
+        title: "Montagem NU",
         artist: "The Weeknd",
-        spotifyUri: "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+        spotifyUri: "spotify:track:11dFghVXANMlKmJXsNCbNl",
         coverArt: "https://i.scdn.co/image/ab67616d0000b2738863bc11d2aa12b54f5aeb36"
       },
       {
