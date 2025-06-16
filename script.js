@@ -1,235 +1,114 @@
-import { config } from './config.js';
-
-// DOM Elements
-const elements = {
-  avatar: document.querySelector('.avatar'),
-  username: document.querySelector('.username-text'),
-  discriminator: document.querySelector('.discriminator'),
-  bio: document.querySelector('.bio'),
-  statusEmoji: document.querySelector('.status-emoji'),
-  statusText: document.querySelector('.status-text'),
-  activityName: document.querySelector('.activity-name'),
-  activityState: document.querySelector('.activity-state'),
-  activityIcon: document.querySelector('.activity-icon-i'),
-  badgesContainer: document.querySelector('.badges'),
-  tagsContainer: document.querySelector('.tags'),
-  socialsContainer: document.querySelector('.socials'),
-  connectionsList: document.querySelector('.connections-list'),
-  themeOptions: document.querySelector('.theme-options'),
-  cursorFollower: document.querySelector('.cursor-follower'),
-  status: document.querySelector('.status'),
-  statusRipple: document.querySelector('.status-ripple'),
-  avatarContainer: document.querySelector('.avatar-container')
-};
-
-// Initialize Profile
-function initProfile() {
-  // Set profile data
-  elements.avatar.src = `https://cdn.discordapp.com/avatars/${config.profile.id}/${config.profile.avatar}.webp?size=512`;
-  elements.username.textContent = config.profile.username;
-  elements.discriminator.textContent = `#${config.profile.discriminator}`;
-  elements.bio.textContent = config.profile.bio;
+document.addEventListener('DOMContentLoaded', function() {
+  // Cursor follower effect
+  const cursorFollower = document.querySelector('.cursor-follower');
   
-  // Set status
-  elements.statusEmoji.className = `fas ${config.profile.status.emoji}`;
-  elements.statusText.textContent = config.profile.status.text;
-  
-  // Set activity
-  elements.activityName.textContent = config.profile.activity.name;
-  elements.activityState.textContent = config.profile.activity.details;
-  elements.activityIcon.className = `fas ${config.profile.activity.icon}`;
-  
-  // Create badges
-  config.badges.forEach(badge => {
-    const badgeElement = document.createElement('div');
-    badgeElement.className = 'badge';
-    badgeElement.innerHTML = `
-      <i class="fas ${badge.icon}"></i>
-      <span class="badge-tooltip">${badge.tooltip}</span>
-    `;
-    elements.badgesContainer.appendChild(badgeElement);
-  });
-  
-  // Create tags
-  config.tags.forEach(tag => {
-    const tagElement = document.createElement('span');
-    tagElement.textContent = `#${tag}`;
-    elements.tagsContainer.appendChild(tagElement);
-  });
-  
-  // Create social links
-  config.socials.forEach(social => {
-    const socialLink = document.createElement('a');
-    socialLink.className = `social-link ${social.platform}`;
-    socialLink.href = social.url;
-    socialLink.target = '_blank';
-    socialLink.title = social.platform.charAt(0).toUpperCase() + social.platform.slice(1);
-    socialLink.innerHTML = `<i class="${social.icon}"></i>`;
-    elements.socialsContainer.appendChild(socialLink);
-  });
-  
-  // Create connections
-  config.connections.forEach(connection => {
-    const connectionElement = document.createElement('div');
-    connectionElement.className = 'connection';
-    connectionElement.innerHTML = `
-      <div class="connection-icon">
-        <i class="${connection.icon}"></i>
-      </div>
-      <div class="connection-name">${connection.platform.charAt(0).toUpperCase() + connection.platform.slice(1)}</div>
-      <div class="connection-username">${connection.username}</div>
-    `;
-    elements.connectionsList.appendChild(connectionElement);
-  });
-}
-
-// Initialize Themes
-function initThemes() {
-  config.themes.forEach(theme => {
-    const themeOption = document.createElement('button');
-    themeOption.className = 'theme-option';
-    themeOption.style.background = theme.primary;
-    themeOption.style.border = `2px solid ${theme.secondary}`;
-    themeOption.dataset.theme = theme.name;
-    themeOption.title = theme.name.charAt(0).toUpperCase() + theme.name.slice(1);
-    
-    themeOption.addEventListener('click', () => {
-      setTheme(theme.name);
-    });
-    
-    elements.themeOptions.appendChild(themeOption);
-  });
-}
-
-// Set Theme
-function setTheme(themeName) {
-  document.documentElement.setAttribute('data-theme', themeName);
-  localStorage.setItem('theme', themeName);
-  
-  // Update particles color
-  const theme = config.themes.find(t => t.name === themeName);
-  document.documentElement.style.setProperty('--primary', theme.primary);
-  document.documentElement.style.setProperty('--primary-rgb', hexToRgb(theme.primary));
-  document.documentElement.style.setProperty('--secondary', theme.secondary);
-  document.documentElement.style.setProperty('--secondary-rgb', hexToRgb(theme.secondary));
-  document.documentElement.style.setProperty('--background', theme.background);
-  document.documentElement.style.setProperty('--background-rgb', hexToRgb(theme.background));
-}
-
-// Hex to RGB Converter
-function hexToRgb(hex) {
-  const r = parseInt(hex.slice(1, 3), 16);
-  const g = parseInt(hex.slice(3, 5), 16);
-  const b = parseInt(hex.slice(5, 7), 16);
-  return `${r}, ${g}, ${b}`;
-}
-
-// Initialize Background Particles
-function initParticles() {
-  const background = document.querySelector('.background-animation');
-  
-  for (let i = 0; i < config.animations.particleCount; i++) {
-    const particle = document.createElement('div');
-    particle.className = 'particle';
-    
-    // Random size between 5px and 20px
-    const size = Math.random() * 15 + 5;
-    particle.style.width = `${size}px`;
-    particle.style.height = `${size}px`;
-    
-    // Random position
-    particle.style.left = `${Math.random() * 100}%`;
-    particle.style.top = `${Math.random() * 100}%`;
-    
-    // Random animation duration
-    const duration = Math.random() * 
-      (config.animations.floatDuration.max - config.animations.floatDuration.min) + 
-      config.animations.floatDuration.min;
-    particle.style.animationDuration = `${duration}s`;
-    
-    // Random delay
-    particle.style.animationDelay = `${Math.random() * 10}s`;
-    
-    // Random opacity
-    particle.style.opacity = Math.random() * 0.3 + 0.1;
-    
-    // Random blur
-    particle.style.backdropFilter = `blur(${Math.random() * 3 + 1}px)`;
-    
-    background.appendChild(particle);
-  }
-}
-
-// Initialize Status Animation
-function initStatusAnimation() {
-  const statuses = ['online', 'idle', 'dnd', 'offline'];
-  let currentStatus = 0;
-  
-  setInterval(() => {
-    currentStatus = (currentStatus + 1) % statuses.length;
-    elements.status.className = 'status';
-    elements.status.classList.add(statuses[currentStatus]);
-    elements.status.title = statuses[currentStatus].charAt(0).toUpperCase() + statuses[currentStatus].slice(1);
-    
-    // Create ripple effect
-    elements.statusRipple.className = 'status-ripple';
-    elements.statusRipple.classList.add(statuses[currentStatus]);
-    elements.statusRipple.style.animation = 'ripple 1s ease-out';
-    
-    setTimeout(() => {
-      elements.statusRipple.style.animation = '';
-    }, 1000);
-  }, config.animations.statusCycleInterval);
-}
-
-// Initialize Custom Cursor
-function initCustomCursor() {
   document.addEventListener('mousemove', (e) => {
-    elements.cursorFollower.style.left = `${e.clientX}px`;
-    elements.cursorFollower.style.top = `${e.clientY}px`;
+    cursorFollower.style.left = `${e.clientX}px`;
+    cursorFollower.style.top = `${e.clientY}px`;
   });
+
+  // Theme switching functionality
+  const themeOptions = document.querySelectorAll('.theme-option');
   
-  // Cursor hover effects
-  const interactiveElements = document.querySelectorAll(
-    'a, button, .badge, .tags span, .social-link, .connection'
-  );
+  themeOptions.forEach(option => {
+    option.addEventListener('click', () => {
+      const theme = option.getAttribute('data-theme');
+      changeTheme(theme);
+    });
+  });
+
+  function changeTheme(theme) {
+    const root = document.documentElement;
+    
+    switch(theme) {
+      case 'dark':
+        root.style.setProperty('--primary', '#5865F2');
+        root.style.setProperty('--background', '#1e1f22');
+        root.style.setProperty('--card-bg', '#111214');
+        root.style.setProperty('--text-primary', '#dbdee1');
+        root.style.setProperty('--text-secondary', '#a5a9ad');
+        break;
+      case 'light':
+        root.style.setProperty('--primary', '#5865F2');
+        root.style.setProperty('--background', '#f2f3f5');
+        root.style.setProperty('--card-bg', '#ffffff');
+        root.style.setProperty('--text-primary', '#060607');
+        root.style.setProperty('--text-secondary', '#4e5058');
+        break;
+      case 'pink':
+        root.style.setProperty('--primary', '#EB459E');
+        root.style.setProperty('--background', '#2b2d31');
+        root.style.setProperty('--card-bg', '#1e1f22');
+        break;
+      case 'purple':
+        root.style.setProperty('--primary', '#9C84EF');
+        root.style.setProperty('--background', '#2b2d31');
+        root.style.setProperty('--card-bg', '#1e1f22');
+        break;
+      default: // Default theme
+        root.style.setProperty('--primary', '#5865F2');
+        root.style.setProperty('--background', '#313338');
+        root.style.setProperty('--card-bg', '#232428');
+        root.style.setProperty('--text-primary', '#F2F3F5');
+        root.style.setProperty('--text-secondary', '#B5BAC1');
+    }
+  }
+
+  // Animated status effect
+  const statusRipple = document.querySelector('.status-ripple');
+  
+  function animateStatus() {
+    statusRipple.style.animation = 'none';
+    void statusRipple.offsetWidth; // Trigger reflow
+    statusRipple.style.animation = 'ripple 1.5s infinite';
+  }
+  
+  // Change status every 10 seconds for demo purposes
+  setInterval(() => {
+    const status = document.querySelector('.status');
+    const statuses = ['online', 'idle', 'dnd', 'offline'];
+    const colors = {
+      'online': '#3BA55D',
+      'idle': '#FAA81A',
+      'dnd': '#ED4245',
+      'offline': '#747F8D'
+    };
+    
+    const randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
+    status.style.backgroundColor = colors[randomStatus];
+    statusRipple.style.backgroundColor = colors[randomStatus];
+    status.setAttribute('title', randomStatus.charAt(0).toUpperCase() + randomStatus.slice(1));
+    animateStatus();
+  }, 10000);
+
+  // Hover effects for interactive elements
+  const interactiveElements = document.querySelectorAll('.badge, .social, .connection, .server-card');
   
   interactiveElements.forEach(el => {
     el.addEventListener('mouseenter', () => {
-      elements.cursorFollower.style.width = '40px';
-      elements.cursorFollower.style.height = '40px';
-      elements.cursorFollower.style.background = 'rgba(var(--primary-rgb), 0.4)';
+      cursorFollower.style.transform = 'translate(-50%, -50%) scale(2)';
+      cursorFollower.style.opacity = '0.5';
     });
     
     el.addEventListener('mouseleave', () => {
-      elements.cursorFollower.style.width = '20px';
-      elements.cursorFollower.style.height = '20px';
-      elements.cursorFollower.style.background = 'rgba(var(--primary-rgb), 0.2)';
+      cursorFollower.style.transform = 'translate(-50%, -50%) scale(1)';
+      cursorFollower.style.opacity = '1';
     });
   });
-}
 
-// Initialize Avatar Animation
-function initAvatarAnimation() {
-  if (config.animations.avatarFloat) {
-    elements.avatarContainer.classList.add('floating');
-  }
-}
-
-// Initialize App
-function initApp() {
-  // Load saved theme or use default
-  const savedTheme = localStorage.getItem('theme') || 'default';
-  setTheme(savedTheme);
+  // Simulate typing effect for bio
+  const bio = document.querySelector('.bio');
+  const bioText = "Discord enthusiast | Web Developer | Open Source Contributor | Coffee Lover | Building awesome stuff for the community";
+  let i = 0;
   
-  // Initialize components
-  initProfile();
-  initThemes();
-  initParticles();
-  initStatusAnimation();
-  initCustomCursor();
-  initAvatarAnimation();
-}
-
-// Start the app
-document.addEventListener('DOMContentLoaded', initApp);
+  function typeWriter() {
+    if (i < bioText.length) {
+      bio.textContent += bioText.charAt(i);
+      i++;
+      setTimeout(typeWriter, Math.random() * 50 + 20);
+    }
+  }
+  
+  // Start typing after a short delay
+  setTimeout(typeWriter, 1000);
+});
