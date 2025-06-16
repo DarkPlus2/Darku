@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2111/2111370.png">
-  <script type="module" src="script.js"></script>
+  <script src="script.js" defer></script>
 </head>
 <body>
   <div class="theme-selector-container">
@@ -15,7 +15,13 @@
       <button class="theme-selector-toggle">
         <i class="fas fa-palette"></i>
       </button>
-      <div class="theme-options"></div>
+      <div class="theme-options">
+        <div class="theme-option" data-theme="default"></div>
+        <div class="theme-option" data-theme="dark"></div>
+        <div class="theme-option" data-theme="light"></div>
+        <div class="theme-option" data-theme="pink"></div>
+        <div class="theme-option" data-theme="purple"></div>
+      </div>
     </div>
   </div>
 
@@ -23,47 +29,145 @@
 
   <main class="card">
     <div class="avatar-container">
-      <img alt="Avatar" class="avatar">
+      <img alt="Avatar" class="avatar" src="https://cdn.discordapp.com/avatars/123456789012345678/a_abcdef1234567890abcdef1234567890.webp?size=512">
       <div class="status" title="Online"></div>
       <div class="status-ripple"></div>
+      <div class="avatar-badge avatar-badge-nitro">
+        <i class="fas fa-gem"></i>
+      </div>
+      <div class="avatar-badge avatar-badge-boost">
+        <i class="fas fa-rocket"></i>
+      </div>
     </div>
 
     <h1 class="username">
-      <span class="username-text"></span>
-      <span class="discriminator"></span>
+      <span class="username-text">UltimateUser</span>
+      <span class="discriminator">#0001</span>
     </h1>
     
-    <div class="badges"></div>
+    <div class="badges">
+      <div class="badge" title="Discord Staff">
+        <i class="fas fa-star"></i>
+      </div>
+      <div class="badge" title="Partnered Server Owner">
+        <i class="fas fa-check"></i>
+      </div>
+      <div class="badge" title="HypeSquad Events">
+        <i class="fas fa-bolt"></i>
+      </div>
+      <div class="badge" title="Bug Hunter Level 2">
+        <i class="fas fa-bug"></i>
+      </div>
+      <div class="badge" title="Early Supporter">
+        <i class="fas fa-heart"></i>
+      </div>
+      <div class="badge" title="Active Developer">
+        <i class="fas fa-code"></i>
+      </div>
+    </div>
 
-    <p class="bio"></p>
+    <p class="bio">Discord enthusiast | Web Developer | Open Source Contributor | Coffee Lover | Building awesome stuff for the community</p>
 
     <div class="custom-status">
-      <i class="status-emoji"></i>
-      <span class="status-text"></span>
+      <i class="status-emoji">🎮</i>
+      <span class="status-text">Playing Ultimate Discord Profile</span>
     </div>
 
     <div class="divider"></div>
 
-    <div class="tags"></div>
-
-    <div class="activity">
-      <div class="activity-icon">
-        <i class="activity-icon-i"></i>
+    <div class="tags">
+      <div class="tag tag-booster">
+        <i class="fas fa-rocket"></i>
+        Server Booster
       </div>
-      <div class="activity-details">
-        <div class="activity-name"></div>
-        <div class="activity-state"></div>
+      <div class="tag tag-admin">
+        <i class="fas fa-shield-alt"></i>
+        Admin
+      </div>
+      <div class="tag tag-moderator">
+        <i class="fas fa-gavel"></i>
+        Moderator
       </div>
     </div>
 
-    <div class="socials"></div>
+    <div class="activity">
+      <div class="activity-icon">
+        <i class="activity-icon-i fas fa-gamepad"></i>
+      </div>
+      <div class="activity-details">
+        <div class="activity-name">Ultimate Discord</div>
+        <div class="activity-state">Playing for 2 hours</div>
+        <div class="activity-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 65%"></div>
+          </div>
+          <div class="progress-time">
+            <span>1:23:45</span>
+            <span>2:10:00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="socials">
+      <a href="https://github.com" class="social" title="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://twitter.com" class="social" title="Twitter">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://youtube.com" class="social" title="YouTube">
+        <i class="fab fa-youtube"></i>
+      </a>
+      <a href="https://twitch.tv" class="social" title="Twitch">
+        <i class="fab fa-twitch"></i>
+      </a>
+      <a href="https://steamcommunity.com" class="social" title="Steam">
+        <i class="fab fa-steam"></i>
+      </a>
+    </div>
 
     <div class="connections">
       <div class="connections-title">
         <i class="fas fa-link"></i>
         <span>Connections</span>
       </div>
-      <div class="connections-list"></div>
+      <div class="connections-list">
+        <div class="connection">
+          <i class="fab fa-github"></i>
+          <span>GitHub</span>
+          <span class="connection-username">@ultimateuser</span>
+        </div>
+        <div class="connection">
+          <i class="fab fa-twitter"></i>
+          <span>Twitter</span>
+          <span class="connection-username">@ultimateuser</span>
+        </div>
+        <div class="connection">
+          <i class="fab fa-spotify"></i>
+          <span>Spotify</span>
+          <span class="connection-username">Ultimate Listener</span>
+        </div>
+        <div class="connection">
+          <i class="fab fa-steam"></i>
+          <span>Steam</span>
+          <span class="connection-username">ultimate_gamer</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="server-info">
+      <div class="server-card">
+        <img src="https://cdn.discordapp.com/icons/123456789012345678/a_abcdef1234567890abcdef1234567890.webp?size=256" alt="Server Icon" class="server-icon">
+        <div class="server-details">
+          <div class="server-name">Ultimate Server</div>
+          <div class="server-members">
+            <i class="fas fa-user"></i>
+            <span>1,234 online</span>
+            <span>5,678 members</span>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 
