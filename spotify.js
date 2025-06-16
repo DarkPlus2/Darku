@@ -22,10 +22,10 @@ class SpotifyPlayer {
       // This is a simulation for demonstration
       this.tracks = [
         { 
-          title: "Never Gonna Give You Up", 
-          artist: "Rick Astley",
-          duration: 212,
-          audioFile: "rick_astley.mp3" // Replace with actual file
+          title: "Dreaming", 
+          artist: "Lee",
+          duration: 266,
+          audioFile: "background.mp3" // Replace with actual file
         },
         // Add more tracks
       ];
