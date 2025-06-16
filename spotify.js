@@ -1,14 +1,53 @@
+// Spotify Player with Web Audio API
 class SpotifyPlayer {
   constructor() {
+    this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    this.audioBuffer = null;
+    this.sourceNode = null;
     this.isPlaying = false;
-    this.currentTime = 0;
+    this.startTime = 0;
+    this.pauseTime = 0;
     this.currentTrackIndex = 0;
-    this.progressInterval = null;
-    this.tracks = [spotifyConfig.currentTrack, ...spotifyConfig.playlist];
+    this.tracks = []; // Will be loaded from config
+    this.analyser = this.audioContext.createAnalyser();
     
     this.initElements();
     this.initEvents();
-    this.render();
+    this.loadTracks();
+  }
+
+  async loadTracks() {
+    try {
+      // In a real implementation, you would load actual audio files
+      // This is a simulation for demonstration
+      this.tracks = [
+        { 
+          title: "Never Gonna Give You Up", 
+          artist: "Rick Astley",
+          duration: 212,
+          audioFile: "rick_astley.mp3" // Replace with actual file
+        },
+        // Add more tracks
+      ];
+      
+      // Simulate loading audio buffer
+      this.audioBuffer = await this.loadAudioBuffer(this.tracks[0].audioFile);
+      this.render();
+    } catch (error) {
+      console.error("Error loading tracks:", error);
+    }
+  }
+
+  async loadAudioBuffer(url) {
+    // In a real app, you would fetch and decode the audio file
+    // This is a placeholder implementation
+    return new Promise((resolve) => {
+      // Simulate loading
+      setTimeout(() => {
+        const buffer = this.audioContext.createBuffer(2, 44100 * 2, 44100);
+        resolve(buffer);
+      }, 500);
+    });
   }
 
   initElements() {
@@ -22,6 +61,7 @@ class SpotifyPlayer {
     this.durationElement = document.getElementById('spotifyDuration');
     this.titleElement = document.querySelector('.spotify-title');
     this.artistElement = document.querySelector('.spotify-artist');
+    this.coverElement = document.querySelector('.spotify-cover');
   }
 
   initEvents() {
@@ -29,6 +69,12 @@ class SpotifyPlayer {
     this.playBtn.addEventListener('click', () => this.togglePlay());
     this.prevBtn.addEventListener('click', () => this.prevTrack());
     this.nextBtn.addEventListener('click', () => this.nextTrack());
+    this.progressBar.parentElement.addEventListener('click', (e) => this.seek(e));
+    
+    // Mobile touch events
+    this.progressBar.parentElement.addEventListener('touchstart', (e) => this.handleTouchStart(e));
+    this.progressBar.parentElement.addEventListener('touchmove', (e) => this.handleTouchMove(e));
+    this.progressBar.parentElement.addEventListener('touchend', (e) => this.handleTouchEnd(e));
   }
 
   togglePlayer() {
@@ -39,33 +85,87 @@ class SpotifyPlayer {
   }
 
   togglePlay() {
-    this.isPlaying = !this.isPlaying;
-    
     if (this.isPlaying) {
-      this.playBtn.innerHTML = '<i class="fas fa-pause"></i>';
-      this.startProgress();
+      this.pause();
     } else {
-      this.playBtn.innerHTML = '<i class="fas fa-play"></i>';
-      clearInterval(this.progressInterval);
+      this.play();
     }
   }
 
-  startProgress() {
-    clearInterval(this.progressInterval);
-    this.progressInterval = setInterval(() => {
-      if (this.currentTime >= this.getCurrentTrack().duration) {
-        this.nextTrack();
-      } else {
-        this.currentTime++;
-        this.updateProgress();
-      }
-    }, 1000);
+  play() {
+    if (!this.audioBuffer) return;
+
+    this.sourceNode = this.audioContext.createBufferSource();
+    this.sourceNode.buffer = this.audioBuffer;
+    this.sourceNode.connect(this.analyser);
+    this.analyser.connect(this.audioContext.destination);
+    
+    this.sourceNode.start(0, this.pauseTime % this.audioBuffer.duration);
+    this.startTime = this.audioContext.currentTime - this.pauseTime;
+    
+    this.isPlaying = true;
+    this.playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+    this.updateProgress();
+  }
+
+  pause() {
+    if (!this.isPlaying) return;
+    
+    this.sourceNode.stop();
+    this.pauseTime = this.audioContext.currentTime - this.startTime;
+    this.isPlaying = false;
+    this.playBtn.innerHTML = '<i class="fas fa-play"></i>';
+    cancelAnimationFrame(this.animationFrame);
   }
 
   updateProgress() {
-    const progressPercent = (this.currentTime / this.getCurrentTrack().duration) * 100;
-    this.progressBar.style.width = `${progressPercent}%`;
-    this.currentTimeElement.textContent = this.formatTime(this.currentTime);
+    if (this.isPlaying) {
+      const currentTime = this.audioContext.currentTime - this.startTime;
+      const duration = this.audioBuffer.duration;
+      const progressPercent = (currentTime / duration) * 100;
+      
+      this.progressBar.style.width = `${progressPercent}%`;
+      this.currentTimeElement.textContent = this.formatTime(currentTime);
+      
+      if (currentTime >= duration) {
+        this.nextTrack();
+      } else {
+        this.animationFrame = requestAnimationFrame(() => this.updateProgress());
+      }
+    }
+  }
+
+  seek(e) {
+    if (!this.audioBuffer) return;
+    
+    const progressBar = e.currentTarget;
+    const clickPosition = e.clientX - progressBar.getBoundingClientRect().left;
+    const percentClicked = clickPosition / progressBar.offsetWidth;
+    const seekTime = percentClicked * this.audioBuffer.duration;
+    
+    this.pauseTime = seekTime;
+    this.progressBar.style.width = `${percentClicked * 100}%`;
+    this.currentTimeElement.textContent = this.formatTime(seekTime);
+    
+    if (this.isPlaying) {
+      this.pause();
+      this.play();
+    }
+  }
+
+  // Mobile touch handlers
+  handleTouchStart(e) {
+    this.touchStartX = e.touches[0].clientX;
+    this.seek(e.touches[0]);
+  }
+
+  handleTouchMove(e) {
+    e.preventDefault();
+    this.seek(e.touches[0]);
+  }
+
+  handleTouchEnd() {
+    // Additional touch end logic if needed
   }
 
   prevTrack() {
@@ -78,23 +178,26 @@ class SpotifyPlayer {
     this.loadTrack();
   }
 
-  loadTrack() {
-    const track = this.getCurrentTrack();
-    this.currentTime = 0;
-    this.titleElement.textContent = track.title;
-    this.artistElement.textContent = track.artist;
-    this.durationElement.textContent = this.formatTime(track.duration);
-    this.progressBar.style.width = '0%';
-    this.currentTimeElement.textContent = '0:00';
+  async loadTrack() {
+    const track = this.tracks[this.currentTrackIndex];
     
-    if (this.isPlaying) {
-      clearInterval(this.progressInterval);
-      this.startProgress();
+    try {
+      this.pause();
+      this.audioBuffer = await this.loadAudioBuffer(track.audioFile);
+      
+      this.titleElement.textContent = track.title;
+      this.artistElement.textContent = track.artist;
+      this.durationElement.textContent = this.formatTime(track.duration);
+      this.progressBar.style.width = '0%';
+      this.currentTimeElement.textContent = '0:00';
+      this.pauseTime = 0;
+      
+      if (this.isPlaying) {
+        this.play();
+      }
+    } catch (error) {
+      console.error("Error loading track:", error);
     }
-  }
-
-  getCurrentTrack() {
-    return this.tracks[this.currentTrackIndex];
   }
 
   formatTime(seconds) {
@@ -104,10 +207,12 @@ class SpotifyPlayer {
   }
 
   render() {
-    if (spotifyConfig.showPlayer) {
-      this.togglePlayer();
+    if (this.tracks.length > 0) {
+      const track = this.tracks[this.currentTrackIndex];
+      this.titleElement.textContent = track.title;
+      this.artistElement.textContent = track.artist;
+      this.durationElement.textContent = this.formatTime(track.duration);
     }
-    this.loadTrack();
   }
 }
 
