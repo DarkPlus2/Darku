@@ -34,7 +34,7 @@ class SpotifyPlayer {
         title: "Stay",
         artist: "The Kid LAROI, Justin Bieber",
         duration: 138,
-        audioUrl: "https://example.com/music/stay.mp3", // Replace with actual URL
+        audioUrl: "https://open.spotify.com/track/4mk4YEemOjg7lV8Jf4vGEa", // Replace with actual URL
         coverArt: "https://i.scdn.co/image/ab67616d0000b273d8cc2281fcd4519ca020926b"
       }
     ];
