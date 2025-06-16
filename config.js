@@ -1,19 +1,19 @@
 export const config = {
   // Profile Configuration
   profile: {
-    id: "YOUR_DISCORD_ID",
-    username: "YourName",
-    discriminator: "0000",
-    avatar: "YOUR_AVATAR_HASH",
+    id: "1186206505658220597",
+    username: "DarkPlusX",
+    discriminator: "9292",
+    avatar: "f2f0804d53d3863c8646baca897b7514",
     bio: "🌟 Full-stack Developer | Open Source Contributor | UI/UX Designer | Coffee Enthusiast",
     status: {
       text: "Working on my next big project!",
       emoji: "fa-smile"
     },
     activity: {
-      name: "Visual Studio Code",
-      details: "Working on profile-card.html",
-      icon: "fa-code"
+      name: "Minecraft",
+      details: "Playing single player",
+      icon: "fa-minecraft"
     }
   },
 
@@ -26,22 +26,21 @@ export const config = {
   ],
 
   // Tags Configuration
-  tags: ["developer", "opensource", "javascript", "design", "webdev"],
+  tags: ["Minecraft", "Survival", "JavaScript"],
 
   // Social Links Configuration
   socials: [
-    { platform: "discord", url: "https://discord.com/users/YOUR_ID", icon: "fab fa-discord" },
-    { platform: "github", url: "https://github.com/YOUR_GITHUB", icon: "fab fa-github" },
-    { platform: "twitter", url: "https://twitter.com/YOUR_TWITTER", icon: "fab fa-twitter" },
-    { platform: "youtube", url: "https://youtube.com/YOUR_YOUTUBE", icon: "fab fa-youtube" },
-    { platform: "twitch", url: "https://twitch.tv/YOUR_TWITCH", icon: "fab fa-twitch" }
+    { platform: "discord", url: "https://discord.com/users/1186206505658220597", icon: "fab fa-discord" },
+    { platform: "github", url: "https://github.com/darkplus2", icon: "fab fa-github" },
+    { platform: "youtube", url: "https://youtube.com/@darkplusx", icon: "fab fa-youtube" },
+    { platform: "youtube", url: "https://youtube.com/@lowx5", icon: "fab fa-twitch" }
   ],
 
   // Connections Configuration
   connections: [
-    { platform: "github", username: "@yourusername", icon: "fab fa-github" },
-    { platform: "twitter", username: "@yourhandle", icon: "fab fa-twitter" },
-    { platform: "steam", username: "gamertag", icon: "fab fa-steam" }
+    { platform: "github", username: "@darkplus2", icon: "fab fa-github" },
+    { platform: "xbox", username: "@darkplusx2", icon: "fab fa-xbox" },
+    { platform: "roblox", username: "darkplusx2", icon: "fab fa-roblox" }
   ],
 
   // Theme Configuration
