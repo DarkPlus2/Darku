@@ -1,15 +1,15 @@
 const config = {
   // User Configuration
   user: {
-    id: "123456789012345678",
-    username: "UltimateUser",
-    discriminator: "0001",
-    avatar: "https://cdn.discordapp.com/avatars/123456789012345678/a_abcdef1234567890abcdef1234567890.webp?size=512",
-    status: "online", // online, idle, dnd, offline
-    bio: "Discord enthusiast | Web Developer | Open Source Contributor | Coffee Lover | Building awesome stuff for the community",
+    id: "1186206505658220597",
+    username: "darkplusx",
+    discriminator: "9292",
+    avatar: "https://cdn.discordapp.com/avatars/1186206505658220597/f2f0804d53d3863c8646baca897b7514.webp?size=512",
+    status: "dnd", // online, idle, dnd, offline
+    bio: "Minecraft Player | Web Developer | Open Source Contributor | Coffee Lover | Building awesome stuff for the community",
     customStatus: {
-      emoji: "🎮",
-      text: "Playing Ultimate Discord Profile"
+      emoji: "💓",
+      text: "Playing with your mind"
     }
   },
 
@@ -32,7 +32,7 @@ const config = {
 
   // Activity Configuration
   activity: {
-    name: "Ultimate Discord",
+    name: "Playing Minecraft On FakePixel",
     state: "Playing for 2 hours",
     icon: "fas fa-gamepad",
     progress: {
@@ -61,11 +61,11 @@ const config = {
 
   // Server Info Configuration
   serverInfo: {
-    name: "Ultimate Server",
-    icon: "https://cdn.discordapp.com/icons/123456789012345678/a_abcdef1234567890abcdef1234567890.webp?size=256",
+    name: "Darkness Community",
+    icon: "https://cdn.discordapp.com/icons/1368606209720189109/ec55e2c1124e1d7965c5a07622e00aef.webp?size=256",
     members: {
-      online: 1234,
-      total: 5678
+      online: 23,
+      total: 56
     }
   },
 
