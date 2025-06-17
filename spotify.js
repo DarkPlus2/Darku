@@ -2,7 +2,7 @@
 class SpotifyPlayer {
   constructor() {
     // Player state
-    this.isPlaying = false;
+    this.isPlaying = true;
     this.currentTrackIndex = 0;
     this.volume = 0.7;
     this.shuffleMode = false;
