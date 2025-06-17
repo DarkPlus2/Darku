@@ -16,21 +16,21 @@ class SpotifyPlayer {
     // Track playlist with Spotify URIs
     this.tracks = [
       {
-        title: "Montagem NU",
-        artist: "The Weeknd",
-        spotifyUri: "spotify:track:11dFghVXANMlKmJXsNCbNl",
+        title: "MONTAGEM NEBULA - SLOWED",
+        artist: "Rushex, MONTAGEM",
+        spotifyUri: "https://open.spotify.com/track/5FWpId5TRidgoNdnuctomr",
         coverArt: "https://i.scdn.co/image/ab67616d0000b2738863bc11d2aa12b54f5aeb36"
       },
       {
         title: "Dance Monkey",
         artist: "Tones and I",
-        spotifyUri: "spotify:track:5ZULALImTm80tzUbYQYM9d",
+        spotifyUri: "https://open.spotify.com/track/166BJ1qwh0uxjj03XBetnq",
         coverArt: "https://i.scdn.co/image/ab67616d0000b273a935e468a2e54d8e1f1eac7c"
       },
       {
         title: "Stay",
         artist: "The Kid LAROI, Justin Bieber",
-        spotifyUri: "spotify:track:5HCyWlXZPP0y6Gqq8TgA20",
+        spotifyUri: "https://open.spotify.com/track/2FnkrCrbXJuebXxnVtXiHI",
         coverArt: "https://i.scdn.co/image/ab67616d0000b273d8cc2281fcd4519ca020926b"
       }
     ];
