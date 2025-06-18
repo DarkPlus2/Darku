@@ -91,8 +91,8 @@ const guildsConfig = {
     {
       name: "Celestial nexus",
       icon: "https://cdn.discordapp.com/icons/1368606209720189109/ec320830cb4981fb5e23200b0a404337.webp?size=256",
-      members: 1234,
-      online: 567
+      members: 59,
+      online: 19
     }
   ]
 };
