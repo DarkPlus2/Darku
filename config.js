@@ -1,13 +1,13 @@
 const config = {
   user: {
-    username: "UltimateUser",
-    discriminator: "0001",
-    avatar: "https://cdn.discordapp.com/avatars/123456789012345678/a_abcdef1234567890abcdef1234567890.webp?size=512",
+    username: "DarkPlusX",
+    discriminator: "9292",
+    avatar: "https://cdn.discordapp.com/avatars/1186206505658220597/5ed519ad7a5028b17424c635836c21bd.webp?size=512",
     status: "online",
     bio: "Discord enthusiast | Web Developer | Open Source Contributor | Coffee Lover | Building awesome stuff for the community",
     customStatus: {
-      emoji: "🎮",
-      text: "Playing Ultimate Discord Profile"
+      emoji: "👋🏻",
+      text: "Welcome To Dark's Profile"
     }
   },
 
@@ -27,18 +27,15 @@ const config = {
   ],
 
   socials: [
-    { name: "GitHub", icon: "fab fa-github", url: "https://github.com" },
-    { name: "Twitter", icon: "fab fa-twitter", url: "https://twitter.com" },
-    { name: "YouTube", icon: "fab fa-youtube", url: "https://youtube.com" },
-    { name: "Twitch", icon: "fab fa-twitch", url: "https://twitch.tv" },
-    { name: "Steam", icon: "fab fa-steam", url: "https://steamcommunity.com" }
+    { name: "GitHub", icon: "fab fa-github", url: "https://github.com/DarkPlus2" },
+    { name: "YouTube", icon: "fab fa-youtube", url: "https://youtube.com/@lowx5" },
+    { name: "YouTube", icon: "fab fa-youtube", url: "https://youtube.com/@darkplusx" },
+    { name: "Xbox", icon: "fab fa-xbox", url: "https://www.xbox.com/en-US/play/user/DarkPlusX2" }
   ],
 
   connections: [
-    { name: "GitHub", icon: "fab fa-github", username: "@ultimateuser" },
-    { name: "Twitter", icon: "fab fa-twitter", username: "@ultimateuser" },
-    { name: "Spotify", icon: "fab fa-spotify", username: "Ultimate Listener" },
-    { name: "Steam", icon: "fab fa-steam", username: "ultimate_gamer" }
+    { name: "GitHub", icon: "fab fa-github", username: "@DarkPlus2" },
+    { name: "Spotify", icon: "fab fa-spotify", username: "DarkPlusX" },
   ],
 
   themes: [
