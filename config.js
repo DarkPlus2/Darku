@@ -3,7 +3,7 @@ const config = {
     username: "DarkPlusX",
     discriminator: "9292",
     avatar: "https://cdn.discordapp.com/avatars/1186206505658220597/5ed519ad7a5028b17424c635836c21bd.webp?size=512",
-    status: "online",
+    status: "dnd",
     bio: "Discord enthusiast | Web Developer | Open Source Contributor | Coffee Lover | Building awesome stuff for the community",
     customStatus: {
       emoji: "👋🏻",
