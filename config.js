@@ -39,71 +39,20 @@ const config = {
     { name: "Crunchyroll", icon: "fas fa-fire", username: "The54Dark" },
     { name: "Xbox", icon: "fa-brands fa-xbox", username: "DarkPlusX2" },
   ],
+const themes = [
+  { name: "default", primary: "#7289DA", background: "#2C2F33", card: "#23272A" },
+  { name: "dark", primary: "#4E5D94", background: "#1A1B1E", card: "#101113" },
+  { name: "light", primary: "#5865F2", background: "#F9FAFB", card: "#FFFFFF" },
+  { name: "pink", primary: "#FF4D9E", background: "#1E1F24", card: "#2A2B31" },
+  { name: "purple", primary: "#B388FF", background: "#1E1F24", card: "#292B33" },
+  { name: "ultimate", primary: "#FF3366", background: "#121212", card: "#1E1E2E" },
+  { name: "cyberpunk", primary: "#00FFF7", background: "#0F0F1A", card: "#1A1A2E" },
+  { name: "ocean", primary: "#1CA8DD", background: "#0B1D2B", card: "#132E40" },
+  { name: "forest", primary: "#34C759", background: "#0F1C12", card: "#1A2B20" },
+  { name: "sunset", primary: "#FF6B6B", background: "#2F1B28", card: "#3A2231" }
+];
 
-  themes: [
-[
-  {
-    name: "default",
-    primary: "#7289DA",        // Discord-style blue
-    background: "#2C2F33",
-    card: "#23272A"
-  },
-  {
-    name: "dark",
-    primary: "#4E5D94",
-    background: "#1A1B1E",
-    card: "#101113"
-  },
-  {
-    name: "light",
-    primary: "#5865F2",
-    background: "#F9FAFB",
-    card: "#FFFFFF"
-  },
-  {
-    name: "pink",
-    primary: "#FF4D9E",
-    background: "#1E1F24",
-    card: "#2A2B31"
-  },
-  {
-    name: "purple",
-    primary: "#B388FF",
-    background: "#1E1F24",
-    card: "#292B33"
-  },
-  {
-    name: "ultimate",
-    primary: "#FF3366",
-    background: "#121212",
-    card: "#1E1E2E"
-  },
-  {
-    name: "cyberpunk",
-    primary: "#00FFF7",        // Neon cyan
-    background: "#0F0F1A",     // Deep navy
-    card: "#1A1A2E"
-  },
-  {
-    name: "ocean",
-    primary: "#1CA8DD",        // Bright ocean blue
-    background: "#0B1D2B",
-    card: "#132E40"
-  },
-  {
-    name: "forest",
-    primary: "#34C759",        // Apple green
-    background: "#0F1C12",
-    card: "#1A2B20"
-  },
-  {
-    name: "sunset",
-    primary: "#FF6B6B",        // Coral red
-    background: "#2F1B28",     // Dusky purple
-    card: "#3A2231"
-  }
-]
-};
+window.themes = themes;
 
 // Guilds configuration
 const guildsConfig = {
