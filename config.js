@@ -48,31 +48,6 @@ const config = {
   ]
 };
 
-// Spotify configuration
-const spotifyConfig = {
-  showPlayer: false,
-  currentTrack: {
-    title: "Never Gonna Give You Up",
-    artist: "Rick Astley",
-    duration: 212, // in seconds
-    coverArt: "https://i.scdn.co/image/ab67616d0000b273c8a11e48c91a982d086afc69"
-  },
-  playlist: [
-    {
-      title: "Blinding Lights",
-      artist: "The Weeknd",
-      duration: 200,
-      coverArt: "https://i.scdn.co/image/ab67616d0000b2738863bc11d2aa12b54f5aeb36"
-    },
-    {
-      title: "Dance Monkey",
-      artist: "Tones and I",
-      duration: 210,
-      coverArt: "https://i.scdn.co/image/ab67616d0000b273a935e468a2e54d8e1f1eac7c"
-    }
-  ]
-};
-
 // Guilds configuration
 const guildsConfig = {
   servers: [
