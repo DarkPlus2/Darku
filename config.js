@@ -77,16 +77,10 @@ const spotifyConfig = {
 const guildsConfig = {
   servers: [
     {
-      name: "Ultimate Server",
-      icon: "https://cdn.discordapp.com/icons/123456789012345678/a_abcdef1234567890abcdef1234567890.webp?size=256",
-      members: 5678,
-      online: 1234
-    },
-    {
       name: "Darkness",
       icon: "https://cdn.discordapp.com/icons/1291767077291429930/169a10e1d417375e67a463476881722a.webp?size=256",
-      members: 8901,
-      online: 3456
+      members: 1258,
+      online: 146
     },
     {
       name: "Celestial nexus",
