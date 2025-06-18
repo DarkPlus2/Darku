@@ -36,7 +36,8 @@ const config = {
   connections: [
     { name: "GitHub", icon: "fab fa-github", username: "@DarkPlus2" },
     { name: "Spotify", icon: "fab fa-spotify", username: "DarkPlusX" },
-    { name: "Crunchyroll", icon: "fan fa-circle", username: "The54Dark" },
+    { name: "Crunchyroll", icon: "fab fa-crunchyroll", username: "The54Dark" },
+    { name: "Xbox", icon: "fa-brands fa-xbox", username: "DarkPlusX2" },
   ],
 
   themes: [
