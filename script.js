@@ -6,38 +6,38 @@ class Profile {
   }
 
   renderProfile() {
-    // User info
-    document.querySelector('.username-text').textContent = config.user.username;
-    document.querySelector('.discriminator').textContent = `#${config.user.discriminator}`;
-    document.querySelector('.avatar').src = config.user.avatar;
-    document.querySelector('.bio').textContent = config.user.bio;
-    
-    // Status
-    document.querySelector('.status-emoji').textContent = config.user.customStatus.emoji;
-    document.querySelector('.status-text').textContent = config.user.customStatus.text;
-    
+    // User Info
+    const { user, badges, tags, socials, connections } = config;
+
+    document.querySelector('.username-text').textContent = user.username;
+    document.querySelector('.discriminator').textContent = `#${user.discriminator}`;
+    document.querySelector('.avatar').src = user.avatar;
+    document.querySelector('.bio').textContent = user.bio;
+    document.querySelector('.status-emoji').textContent = user.customStatus.emoji;
+    document.querySelector('.status-text').textContent = user.customStatus.text;
+
     // Badges
     const badgesContainer = document.querySelector('.badges');
-    config.badges.forEach(badge => {
+    badges.forEach(badge => {
       const badgeElement = document.createElement('div');
       badgeElement.className = 'badge';
       badgeElement.title = badge.title;
       badgeElement.innerHTML = `<i class="${badge.icon}"></i>`;
       badgesContainer.appendChild(badgeElement);
     });
-    
+
     // Tags
     const tagsContainer = document.querySelector('.tags');
-    config.tags.forEach(tag => {
+    tags.forEach(tag => {
       const tagElement = document.createElement('div');
       tagElement.className = `tag tag-${tag.type}`;
       tagElement.innerHTML = `<i class="${tag.icon}"></i> ${tag.name}`;
       tagsContainer.appendChild(tagElement);
     });
-    
+
     // Socials
     const socialsContainer = document.querySelector('.socials');
-    config.socials.forEach(social => {
+    socials.forEach(social => {
       const socialElement = document.createElement('a');
       socialElement.className = 'social';
       socialElement.href = social.url;
@@ -47,10 +47,10 @@ class Profile {
       socialElement.innerHTML = `<i class="${social.icon}"></i>`;
       socialsContainer.appendChild(socialElement);
     });
-    
+
     // Connections
     const connectionsContainer = document.querySelector('.connections-list');
-    config.connections.forEach(connection => {
+    connections.forEach(connection => {
       const connectionElement = document.createElement('div');
       connectionElement.className = 'connection';
       connectionElement.innerHTML = `
@@ -64,7 +64,7 @@ class Profile {
 
   initThemeSelector() {
     const themeOptions = document.querySelector('.theme-options');
-    
+
     config.themes.forEach(theme => {
       const themeOption = document.createElement('div');
       themeOption.className = 'theme-option';
@@ -79,32 +79,34 @@ class Profile {
     document.documentElement.style.setProperty('--primary', theme.primary);
     document.documentElement.style.setProperty('--background', theme.background);
     document.documentElement.style.setProperty('--card-bg', theme.card);
-    
-    // Special case for ultimate theme
+
+    // Toggle special ultimate class
+    const card = document.querySelector('.card');
     if (theme.name === 'ultimate') {
-      document.querySelector('.card::before').style.background = 
-        'linear-gradient(90deg, #FF3366 0%, #FF8C42 100%)';
+      card.classList.add('theme-ultimate');
+    } else {
+      card.classList.remove('theme-ultimate');
     }
   }
 
   initCursorFollower() {
     const cursorFollower = document.querySelector('.cursor-follower');
-    
+
     document.addEventListener('mousemove', (e) => {
       cursorFollower.style.left = `${e.clientX}px`;
       cursorFollower.style.top = `${e.clientY}px`;
     });
 
     const interactiveElements = document.querySelectorAll(
-      '.badge, .social, .connection, .guild-card, .tag, .spotify-btn'
+      '.badge, .social, .connection, .guild-card, .tag'
     );
-    
+
     interactiveElements.forEach(el => {
       el.addEventListener('mouseenter', () => {
         cursorFollower.style.transform = 'translate(-50%, -50%) scale(2.5)';
         cursorFollower.style.opacity = '0.4';
       });
-      
+
       el.addEventListener('mouseleave', () => {
         cursorFollower.style.transform = 'translate(-50%, -50%) scale(1)';
         cursorFollower.style.opacity = '1';
@@ -113,7 +115,7 @@ class Profile {
   }
 }
 
-// Initialize Profile
+// Initialize
 document.addEventListener('DOMContentLoaded', () => {
   new Profile();
 });
