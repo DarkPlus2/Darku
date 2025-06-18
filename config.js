@@ -28,7 +28,6 @@ const config = {
 
   socials: [
     { name: "GitHub", icon: "fab fa-github", url: "https://github.com/DarkPlus2" },
-    { name: "YouTube", icon: "fab fa-youtube", url: "https://youtube.com/@lowx5" },
     { name: "YouTube", icon: "fab fa-youtube", url: "https://youtube.com/@darkplusx" },
     { name: "Xbox", icon: "fab fa-xbox", url: "https://www.xbox.com/en-US/play/user/DarkPlusX2" }
   ],
@@ -37,8 +36,11 @@ const config = {
     { name: "GitHub", icon: "fab fa-github", username: "@DarkPlus2" },
     { name: "Spotify", icon: "fab fa-spotify", username: "DarkPlusX" },
     { name: "Crunchyroll", icon: "fas fa-fire", username: "The54Dark" },
-    { name: "Xbox", icon: "fa-brands fa-xbox", username: "DarkPlusX2" },
-  ],
+    { name: "Xbox", icon: "fab fa-xbox", username: "DarkPlusX2" }
+  ]
+};
+
+// Themes array
 const themes = [
   { name: "default", primary: "#7289DA", background: "#2C2F33", card: "#23272A" },
   { name: "dark", primary: "#4E5D94", background: "#1A1B1E", card: "#101113" },
@@ -64,7 +66,7 @@ const guildsConfig = {
       online: 146
     },
     {
-      name: "Celestial nexus",
+      name: "Celestial Nexus",
       icon: "https://cdn.discordapp.com/icons/1368606209720189109/ec320830cb4981fb5e23200b0a404337.webp?size=256",
       members: 59,
       online: 19
