@@ -41,12 +41,42 @@ const config = {
   ],
 
   themes: [
-    { name: "default", primary: "#5865F2", background: "#313338", card: "#232428" },
-    { name: "dark", primary: "#5865F2", background: "#1e1f22", card: "#111214" },
-    { name: "light", primary: "#5865F2", background: "#f2f3f5", card: "#ffffff" },
-    { name: "pink", primary: "#EB459E", background: "#2b2d31", card: "#1e1f22" },
-    { name: "purple", primary: "#9C84EF", background: "#2b2d31", card: "#1e1f22" },
-    { name: "ultimate", primary: "#FF3366", background: "#1a1a2e", card: "#16213e" }
+{
+    name: "default",
+    primary: "#7289DA",
+    background: "#2C2F33",
+    card: "#23272A"
+  },
+  {
+    name: "dark",
+    primary: "#4E5D94",
+    background: "#1A1B1E",
+    card: "#101113"
+  },
+  {
+    name: "light",
+    primary: "#5865F2",
+    background: "#F9FAFB",
+    card: "#FFFFFF"
+  },
+  {
+    name: "pink",
+    primary: "#FF4D9E",
+    background: "#1E1F24",
+    card: "#2A2B31"
+  },
+  {
+    name: "purple",
+    primary: "#B388FF",
+    background: "#1E1F24",
+    card: "#292B33"
+  },
+  {
+    name: "ultimate",
+    primary: "#FF3366",
+    background: "#121212",
+    card: "#1E1E2E"
+  }
   ]
 };
 
