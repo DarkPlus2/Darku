@@ -41,9 +41,10 @@ const config = {
   ],
 
   themes: [
-{
+[
+  {
     name: "default",
-    primary: "#7289DA",
+    primary: "#7289DA",        // Discord-style blue
     background: "#2C2F33",
     card: "#23272A"
   },
@@ -76,8 +77,32 @@ const config = {
     primary: "#FF3366",
     background: "#121212",
     card: "#1E1E2E"
+  },
+  {
+    name: "cyberpunk",
+    primary: "#00FFF7",        // Neon cyan
+    background: "#0F0F1A",     // Deep navy
+    card: "#1A1A2E"
+  },
+  {
+    name: "ocean",
+    primary: "#1CA8DD",        // Bright ocean blue
+    background: "#0B1D2B",
+    card: "#132E40"
+  },
+  {
+    name: "forest",
+    primary: "#34C759",        // Apple green
+    background: "#0F1C12",
+    card: "#1A2B20"
+  },
+  {
+    name: "sunset",
+    primary: "#FF6B6B",        // Coral red
+    background: "#2F1B28",     // Dusky purple
+    card: "#3A2231"
   }
-  ]
+]
 };
 
 // Guilds configuration
