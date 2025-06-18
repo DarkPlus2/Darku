@@ -83,14 +83,14 @@ const guildsConfig = {
       online: 1234
     },
     {
-      name: "Gaming Hub",
-      icon: "https://cdn.discordapp.com/icons/987654321098765432/b_abcdef1234567890abcdef1234567890.webp?size=256",
+      name: "Darkness",
+      icon: "https://cdn.discordapp.com/icons/1291767077291429930/169a10e1d417375e67a463476881722a.webp?size=256",
       members: 8901,
       online: 3456
     },
     {
-      name: "Development",
-      icon: "https://cdn.discordapp.com/icons/123123123123123123/c_abcdef1234567890abcdef1234567890.webp?size=256",
+      name: "Celestial nexus",
+      icon: "https://cdn.discordapp.com/icons/1368606209720189109/ec320830cb4981fb5e23200b0a404337.webp?size=256",
       members: 1234,
       online: 567
     }
