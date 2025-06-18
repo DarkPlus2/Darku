@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Darks Profile</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2111/2111370.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2111/2111370.png"/>
 </head>
 <body>
+  <!-- Theme selector -->
   <div class="theme-selector-container">
     <div class="theme-selector">
       <button class="theme-selector-toggle">
@@ -18,8 +19,10 @@
     </div>
   </div>
 
+  <!-- Background animation -->
   <div class="background-animation"></div>
 
+  <!-- Profile card -->
   <main class="card">
     <div class="avatar-container">
       <img alt="Avatar" class="avatar">
@@ -31,9 +34,8 @@
       <span class="username-text"></span>
       <span class="discriminator"></span>
     </h1>
-    
-    <div class="badges"></div>
 
+    <div class="badges"></div>
     <p class="bio"></p>
 
     <div class="custom-status">
@@ -42,46 +44,7 @@
     </div>
 
     <div class="divider"></div>
-
     <div class="tags"></div>
-
-    <div class="spotify-toggle">
-      <button id="spotifyToggleBtn">
-        <i class="fab fa-spotify"></i> Show Spotify Player
-      </button>
-    </div>
-
-    <div class="spotify-player" id="spotifyPlayer">
-      <div class="spotify-header">
-        <div class="spotify-icon">
-          <i class="fab fa-spotify"></i>
-        </div>
-        <div class="spotify-info">
-          <div class="spotify-title"></div>
-          <div class="spotify-artist"></div>
-        </div>
-      </div>
-      <div class="spotify-progress">
-        <div class="spotify-progress-bar">
-          <div class="spotify-progress-fill" id="spotifyProgress"></div>
-        </div>
-        <div class="spotify-progress-time">
-          <span id="spotifyCurrentTime">0:00</span>
-          <span id="spotifyDuration">0:00</span>
-        </div>
-      </div>
-      <div class="spotify-controls">
-        <button class="spotify-btn" id="spotifyPrevBtn">
-          <i class="fas fa-step-backward"></i>
-        </button>
-        <button class="spotify-btn spotify-btn-play" id="spotifyPlayBtn">
-          <i class="fas fa-play"></i>
-        </button>
-        <button class="spotify-btn" id="spotifyNextBtn">
-          <i class="fas fa-step-forward"></i>
-        </button>
-      </div>
-    </div>
 
     <div class="socials"></div>
 
@@ -102,10 +65,11 @@
     </div>
   </main>
 
+  <!-- Cursor follower -->
   <div class="cursor-follower"></div>
 
+  <!-- Scripts -->
   <script src="config.js"></script>
-  <script src="spotify.js"></script>
   <script src="guilds.js"></script>
   <script src="script.js"></script>
 </body>
