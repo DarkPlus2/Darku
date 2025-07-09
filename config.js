@@ -2,7 +2,7 @@ const config = {
   user: {
     username: "DarkPlusX",
     discriminator: "9292",
-    avatar: "https://cdn.discordapp.com/avatars/1186206505658220597/6ebfee478ef413ad312fabe020490c96.webp?size=512",
+    avatar: "https://cdn.discordapp.com/avatars/1186206505658220597/2cde8977caa1d17284266344f85db0bc.webp?size=1024",
     status: "dnd",
     bio: "Discord enthusiast | Web Developer | Open Source Contributor | Coffee Lover | Building awesome stuff for the community",
     customStatus: {
